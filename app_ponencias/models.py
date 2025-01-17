@@ -42,8 +42,11 @@ class Ponencia(models.Model):
 
         tts = gTTS(text=text, lang='es')
         # audio_path = os.path.join(os.path.dirname(file_path), f'{self.pk}_audio.mp3')
-        audio_path = settings.MEDIA_ROOT + '/ponencias/audio/' + f'{self.pk}_audio.mp3'
-        tts.save(audio_path)
+        audio_dir = os.path.join(settings.MEDIA_ROOT, 'ponencias/audio/') 
+        os.makedirs(audio_dir, exist_ok=True)
+        audio_file_path = os.path.join(summary_dir, f'{self.pk}_audio.mp3')
+        # audio_path = settings.MEDIA_ROOT + '/ponencias/audio/' + f'{self.pk}_audio.mp3'
+        tts.save(audio_file_path)
         self.audio_file.name = '/ponencias/audio/' + f'{self.pk}_audio.mp3'  # Ensure the name is correctly set
 
         super(Ponencia, self).save(update_fields=['audio_file'])
