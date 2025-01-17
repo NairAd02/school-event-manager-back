@@ -8,7 +8,7 @@
             <h4>Nombre: {{ ponencia.nombre_ponencia }}</h4>
             <p>Autor: {{ ponencia.autor }}</p>
             <p>Documento: <a
-                    href="{{ ponencia.documento_original }}">{{ ponencia.documento_original }}</a></p>
+                    href="/media{{ ponencia.documento_original }}">{{ ponencia.documento_original }}</a></p>
             <p>Audio: <sup>*generado por IA al guardar</sup> <a
                     href="{{ ponencia.audio_file }}">{{ ponencia.audio_file }}</a></p></p>
             <p>Resumen? <a href="{{ ponencia.summary }}">{{ ponencia.summary }}</a></p></p>
