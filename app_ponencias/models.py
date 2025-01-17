@@ -47,8 +47,9 @@ class Ponencia(models.Model):
         audio_file_path = os.path.join(audio_dir, f'{self.pk}_audio.mp3')
         # audio_path = settings.MEDIA_ROOT + '/ponencias/audio/' + f'{self.pk}_audio.mp3'
         tts.save(audio_file_path)
-        self.audio_file.name = '/ponencias/audio/' + f'{self.pk}_audio.mp3'  # Ensure the name is correctly set
-
+        # self.audio_file.name = '/ponencias/audio/' + f'{self.pk}_audio.mp3'  # Ensure the name is correctly set
+        self.audio_file = audio_file_path
+        # self.audio_file.name = '/ponencias/audio/' + f'{self.pk}_audio.mp3'
         super(Ponencia, self).save(update_fields=['audio_file'])
 
     def save(self, *args, **kwargs):
