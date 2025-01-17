@@ -81,6 +81,7 @@ def ponencias_ia_summary(request, ponencia_id):
             with open(summary_file_path, 'wb') as summary_file:
                 summary_file.write(summary_content)
             ponencia.summary = summary_file_path
+            ponencia.summary.name = '/ponencias/summary/' + f'{ponencia.id}_summary.docx'
             ponencia.save()
             messages.success(request, f'Summary saved successfully!')
         else:
