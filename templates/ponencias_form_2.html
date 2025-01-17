@@ -10,7 +10,7 @@
             <p>Documento: <a
                     href="/media{{ ponencia.documento_original }}">{{ ponencia.documento_original }}</a></p>
             <p>Audio: <sup>*generado por IA al guardar</sup> <a
-                    href="{{ ponencia.audio_file }}">{{ ponencia.audio_file }}</a></p></p>
+                    href="/media{{ ponencia.audio_file }}">{{ ponencia.audio_file }}</a></p></p>
             <p>Resumen? <a href="{{ ponencia.summary }}">{{ ponencia.summary }}</a></p></p>
             <hr>
             <form method="post" enctype="multipart/form-data">
