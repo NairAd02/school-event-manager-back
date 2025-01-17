@@ -55,8 +55,8 @@ class Ponencia(models.Model):
     def save(self, *args, **kwargs):
         super(Ponencia, self).save(*args, **kwargs)
         if self.summary: 
-            self.summary.name = '/ponencias/summary/' + f'{self.id}_summary.docx'
-            super(Ponencia, self).save(update_fields=['summary'])
+            # self.summary.name = '/ponencias/summary/' + f'{self.id}_summary.docx'
+            # super(Ponencia, self).save(update_fields=['summary'])
             if not self.audio_file:
                 self.translate_to_audio()
                 super(Ponencia, self).save(update_fields=['audio_file'])
