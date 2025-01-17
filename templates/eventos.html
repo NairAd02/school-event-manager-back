@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container mt-5">
+    {% include 'messages.html' %}
+        <article>
+            <div class="d-flex justify-content-between">
+                <h3>Listado de Eventos</h3>
+                <a href="{% url 'eventos_add' %}"><button class="outline p-2">Agregar</button></a>
+
+            </div>
+            <table class="mt-3">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Lugar</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for evento in eventos %}
+                    <tr>
+                        <th><a href="{% url 'eventos_change' evento_id=evento.id %}">{{ evento.nombre_evento }}</a></th>
+                        <td>{{ evento.fecha }}</td>
+                        <td>{{ evento.lugar }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </article>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container mt-5">
+        {% include 'messages.html' %}
+        <article>
+            <h4>Nombre: {{ ponencia.nombre_ponencia }}</h4>
+            <p>Autor: {{ ponencia.autor }}</p>
+            <p>Documento: <a
+                    href="/media/{{ ponencia.documento_original }}">/media/{{ ponencia.documento_original }}</a></p>
+            <p>Audio: <sup>*generado por IA al guardar</sup> <a
+                    href="/media{{ ponencia.audio_file }}">/media{{ ponencia.audio_file }}</a></p></p>
+            {#            <p>Resumen? <a href="{{ MEDIA_URL }}{{ ponencia.summary }}">{{ ponencia.summary }}</a></p></p>#}
+            <hr>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <a href="{% url 'ponencias_ia_summary' ponencia_id=ponencia.id %}">
+                    <button id="iaCreateSummary" type="button" class="outline">Generar resumen con IA</button>
+                </a>
+                <button type="submit">Guardar</button>
+            </form>
+        </article>
+    </div>
+{% endblock %}
+{% block javaScript %}
+    <script>
+        document.getElementById('iaCreateSummary').addEventListener('click', function () {
+            this.setAttribute('aria-busy', 'true');
+            this.setAttribute('disabled', 'true');
+            this.textContent = 'Generando...';
+        });
+
+    </script>
+{% endblock %}

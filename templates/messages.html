@@ -1,0 +1,12 @@
+{% if messages %}
+    {% for message in messages %}
+        <article class="{{ message.tags }}">
+{#            <div class="d-flex justify-content-between">#}
+                {{ message }}
+                <span onclick="this.parentElement.style.display='none';" style="position: absolute; right: 5px">&times;</span>
+{#            </div>#}
+
+
+        </article>
+    {% endfor %}
+{% endif %}

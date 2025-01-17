@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container mt-5">
+    {% include 'messages.html' %}
+        <article>
+            <div class="d-flex justify-content-between">
+                <h3>Listado de Ponencias</h3>
+                <a href="{% url 'ponencias_add_1' %}"><button class="outline p-2">Agregar</button></a>
+
+            </div>
+            <table class="mt-3">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Lugar</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for ponencia in ponencias %}
+                    <tr>
+                        <th><a href="{% url 'ponencias_add_2' ponencia_id=ponencia.id %}">{{ ponencia.nombre_ponencia }}</a></th>
+                        <td>{{ ponencia.autor }}</td>
+                        <td>{{ ponencia.documento_original }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </article>
+    </div>
+{% endblock %}

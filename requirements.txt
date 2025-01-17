@@ -1,0 +1,11 @@
+django
+gtts
+rest_framework
+drf_yasg
+python_docx
+
+# chardet
+
+# langchain
+# langchain_community
+# langchain_groq
