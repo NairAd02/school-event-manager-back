@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2syj#9014f2f!amli%rjty0@zxtf+d6%i+a56elj7y9yo$dlr7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['storeapidemo.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['storeapidemo.pythonanywhere.com', 'school-event-manager-back.onrender.com', '127.0.0.1']
 
 # Application definition
 
