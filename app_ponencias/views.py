@@ -75,7 +75,9 @@ def ponencias_ia_summary(request, ponencia_id):
         response = requests.post(api_url, files=files)
         if response.status_code == 200:
             summary_content = response.content
-            summary_file_path = os.path.join(settings.MEDIA_ROOT, 'ponencias/summary/', f'{ponencia.id}_summary.docx')
+            summary_dir = os.path.join(settings.MEDIA_ROOT, 'ponencias/summary/') 
+            os.makedirs(summary_dir, exist_ok=True)
+            summary_file_path = os.path.join(summary_dir, f'{ponencia.id}_summary.docx')
             with open(summary_file_path, 'wb') as summary_file:
                 summary_file.write(summary_content)
             ponencia.summary = summary_file_path
