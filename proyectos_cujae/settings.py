@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-2syj#9014f2f!amli%rjty0@zxtf+d6%i+a56elj7y9yo$dlr7
 DEBUG = True
 
 ALLOWED_HOSTS = ['storeapidemo.pythonanywhere.com', 'school-event-manager-back.onrender.com', '127.0.0.1']
+# settings.py
+
+CSRF_TRUSTED_ORIGINS = ['https://school-event-manager-back.onrender.com']
 
 # Application definition
 
