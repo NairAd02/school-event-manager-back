@@ -36,7 +36,7 @@ class Ponencia(models.Model):
             return str(self.id)
 
     def translate_to_audio(self):
-        file_path = os.path.join(settings.MEDIA_ROOT, self.summary.name)
+        file_path = os.path.join(settings.MEDIA_ROOT, self.summary.path)
         if file_path.endswith('.docx'):
             text = read_docx(file_path)
 
