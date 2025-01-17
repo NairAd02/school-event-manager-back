@@ -1,6 +1,6 @@
 django
 gtts
-rest_framework
+djangorestframework
 drf_yasg
 python_docx
 
